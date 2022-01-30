@@ -17,7 +17,7 @@ function UIElement(x, y, width, height, type, ref, subref, slotType) {
   function AbacusCtrl(type) {
     this.type = type; // 0 Japanese, 1 Chinese
     
-    this.beadLines = 8;
+    this.beadLines = 15;
     this.beadPerLine = (this.type == 0) ? 5 : 7;
     this.beadSep = (this.type == 0) ? 3 : 4;
     this.beadHeight = 40;
@@ -31,12 +31,12 @@ function UIElement(x, y, width, height, type, ref, subref, slotType) {
       for(var i=0; i < this.beadLines; i++) {
         for(var j=0; j < this.beadPerLine; j++) {
           var bead = new Bead();
-          bead.position[0] = 580 - i * this.beadSpacing;
+          bead.position[0] = 1140 - i * this.beadSpacing;
           bead.position[1] = 60 + this.beadPerLine * this.beadHeight - j * this.beadHeight;
-          bead.value = 1;
+            //   bead.value = 1;
           if(j > this.beadSep) {
             bead.position[1] = 60 + this.beadPerLine * this.beadHeight - (j * this.beadHeight + 2 * this.beadHeight);
-            bead.value = 5;
+            // bead.value = 5;
           }
           bead.uniqueID = id;
           this.nodes.push(bead);
@@ -105,8 +105,8 @@ function UIElement(x, y, width, height, type, ref, subref, slotType) {
     var abacusCtrl = new  AbacusCtrl(type);
     var canvas;
     var divId = parentDivId;
-    var beadColor = "rgba(0, 0, 0, 1.0)";
-    var hooveredBeadColor = "rgba(80, 80, 80, 1.0)";
+    var beadColor = "rgba(152, 107, 75, 1.0)";
+    var hooveredBeadColor = "rgba(152, 107, 75, 1.0)";
     var hooveredElement = -1;
     var hooveredBead = -1;
     var uiElements = new Array();
@@ -119,7 +119,7 @@ function UIElement(x, y, width, height, type, ref, subref, slotType) {
       canvas = document.createElement('canvas');
       if(!canvas) console.log("Abacus error: can not create a canvas element");
       canvas.id = parentDivId + "_Abacus";
-      canvas.width = 40 + abacusCtrl.beadLines * abacusCtrl.beadSpacing;
+      canvas.width = 25 + abacusCtrl.beadLines * abacusCtrl.beadSpacing;
       canvas.height= 60 + (abacusCtrl.beadPerLine+2) * abacusCtrl.beadHeight;
       document.body.appendChild(canvas);
       var parent = document.getElementById(divId);
@@ -246,7 +246,7 @@ function UIElement(x, y, width, height, type, ref, subref, slotType) {
         if(j === 2) y = 20 + (abacusCtrl.beadPerLine+2) * abacusCtrl.beadHeight;
         ctx.beginPath();
         ctx.moveTo(20, y);
-        ctx.lineTo(640, y);
+        ctx.lineTo(1200, y);
         ctx.stroke();
       }
       ctx.lineWidth = 1;
@@ -276,7 +276,7 @@ function UIElement(x, y, width, height, type, ref, subref, slotType) {
           valueSting = valueSum.toString(16);
         }
        
-        ctx.fillText(valueSting, textX, textY);
+        // ctx.fillText(valueSting, textX, textY);
       }
     };
     
