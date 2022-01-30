@@ -5,6 +5,7 @@ width: 98%;
 text-align: center;
 background-color: gainsboro;
 }
+
 #img
 {
     margin: 4px;
@@ -13,4 +14,19 @@ background-color: gainsboro;
 h1
 {
     margin: 8px;
+}
+#my_Abacus_Abacus
+{
+    width: 870px;
+}
+@media screen and (max-width: 600px) 
+{
+    #my_Abacus_Abacus 
+    {
+      width: 810px;
+    }
+    .content
+    {
+        width: 1215px;
+    }
 }
