@@ -5,3 +5,12 @@ width: 98%;
 text-align: center;
 background-color: gainsboro;
 }
+#img
+{
+    margin: 4px;
+    width: 250px;
+}
+h1
+{
+    margin: 8px;
+}
